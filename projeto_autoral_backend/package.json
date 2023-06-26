@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
-    "build":"tsc",
+    "start": "npm run dev:migration:run && node dist/server.js",
+    "build": "tspc -p tsconfig.build.json",
+    "prisma:migrate:deploy": "prisma migrate deploy",
     "migration:run": "prisma migrate deploy",
     "migration:generate": "npm run dev:load-envs prisma migrate dev",
     "test": "dotenv -e .env.test jest --passWithNoTests --runInBand",
@@ -48,8 +49,11 @@
     "prisma": "^4.15.0",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
+    "ts-patch": "^3.0.1",
+    "tsc-alias": "^1.8.6",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-transform-paths": "^3.4.6"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
