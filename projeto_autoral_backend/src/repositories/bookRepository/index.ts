@@ -2,7 +2,7 @@ import { prisma } from "@/config";
 import { PostBook } from "@/protocols";
 import { Book } from "@prisma/client";
 
-export async function getBookById(id: number){
+export async function getBookById(id: number): Promise <Book>{
   return prisma.book.findFirst({
     where: {
       id,
@@ -30,8 +30,8 @@ export async function updateBook(id: number,title: string, author: string): Prom
     data: {
       title,
       author
-    }
-  })
+    },
+  });
 }
 
 const bookRepository = {

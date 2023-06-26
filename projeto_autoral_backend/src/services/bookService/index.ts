@@ -4,8 +4,9 @@ import { bookRepository } from "@/repositories/bookRepository";
 import { Book } from "@prisma/client";
 
 export async function getBookById(id: number): Promise<void>{
-  const book = await bookRepository.getBookById(id);
-  if(!book) throw notFoundError();
+  const bookExist = await bookRepository.getBookById(id);
+
+  if(!bookExist) throw notFoundError();
 }
 
 export async function postBook({user_id, theme_id, title, author}: PostBook): Promise<Book> {

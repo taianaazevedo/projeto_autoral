@@ -14,6 +14,7 @@ jobs:
           envkey_POSTGRES_PASSWORD: "123456"
           envkey_POSTGRES_DB: "my_project"
           envkey_DATABASE_URL: "postgresql://postgres:123456@postgres:5432/my_project"
+          envkey_JWT_SECRET: "top_secret_dev"
           directory: projeto_autoral_backend
           file_name: .env.test
       - name: Run tests
