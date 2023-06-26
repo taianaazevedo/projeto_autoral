@@ -30,8 +30,8 @@ export async function updateBook(id: number,title: string, author: string): Prom
     data: {
       title,
       author
-    }
-  })
+    },
+  });
 }
 
 const bookRepository = {
